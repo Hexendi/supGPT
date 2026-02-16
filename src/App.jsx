@@ -34,8 +34,8 @@ function AddComment({ comments }) {
               alt="user"
             />
             <div>
-              <h3>{item.name === "ctw" ?<> Abdellahi ndiaye <PiSealCheckFill style={{color:"#007b9e",padding:"1px"}} /></> : item.name}</h3>
-              <p>{item.name === "ctw" ? <> Abdellahi ndiaye@supnum.mr </> : item.name+'@supnum.mr'}</p>
+              <h3>{item.name.endsWith("CTW") ?<> {item.name.slice(0,-3)} <PiSealCheckFill style={{color:"#007b9e",padding:"1px"}} /></> : item.name}</h3>
+              <p>{item.name.endsWith("CTW") ? <> {item.name.slice(0,-3)}@supnum.mr </> : item.name+'@supnum.mr'}</p>
             </div>
           </div>
           <p style={{maxWidth:"100%",display:"block",wordBreak:"break-all",whiteSpace:"noraml",overflowWrap:"break-word"}}>{item.comment}</p>
