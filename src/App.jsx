@@ -2,6 +2,11 @@
 
 import { IoGitNetworkOutline } from 'react-icons/io5';
 import { PiCodeDuotone } from "react-icons/pi";
+import { GrMultimedia } from "react-icons/gr";
+import { GoStack } from "react-icons/go";
+import { BsRobot } from "react-icons/bs";
+import { GoPaperAirplane } from "react-icons/go";
+import { PiSealCheckFill } from "react-icons/pi";
 import { BiStats } from "react-icons/bi";
 
 import { useState, useRef, useEffect } from "react";
@@ -16,10 +21,12 @@ import './App.css'
 
 
 function AddComment({ comments }) {
+
   return (
+  
  <div style={{ padding: "10px", marginBottom: "10px" }}>
       {comments.map((item, index) => (
-        <div key={index} style={{ marginBottom: "30px" }}>
+        <div key={index} style={{ marginBottom: "30px",maxWidth:"100%",width:"100%",overflow:"hidden" }}>
           <div style={{ display: "flex" }}>
             <img
               src="userprofile.jpg"
@@ -27,12 +34,12 @@ function AddComment({ comments }) {
               alt="user"
             />
             <div>
-              <h3>{item.name}</h3>
-              <p>{item.name}@supnum.mr</p>
+              <h3>{item.name === "ctw" ?<> Abdellahi ndiaye <PiSealCheckFill style={{color:"#007b9e",padding:"1px"}} /></> : item.name}</h3>
+              <p>{item.name === "ctw" ? <> Abdellahi ndiaye@supnum.mr </> : item.name+'@supnum.mr'}</p>
             </div>
           </div>
-          <p>{item.comment}</p>
-          <p>@__{item.tag}</p>
+          <p style={{maxWidth:"100%",display:"block",wordBreak:"break-all",whiteSpace:"noraml",overflowWrap:"break-word"}}>{item.comment}</p>
+          <p>{item.tag === '' ? <></>: "@to_ "+item.tag}</p>
         </div>
       ))}
     </div>
@@ -102,7 +109,7 @@ function App() {
           <p>Pôle d’excellence pour les métiers du numérique</p>
         </div>
         <br></br>
-        <h2>Nos spécialités</h2>
+        <h2><GoStack style={{color:"#006aff",marginRight:"5px"}} />Nos spécialités</h2>
         <p>Créé en septembre  2021 par décret présidentiel, SupNum a pour mission de former les cadres moyens supérieurs dans les métiers du numérique : développement, réseaux, systèmes, sécurité et communication numérique.</p>
          <br></br>
       </div>
@@ -147,10 +154,30 @@ function App() {
       </div>
      </div>
     </div>
+     <details>
+      <summary>Autre spécialités</summary>
+     <div className='card'>
+      <div>
+        <GrMultimedia className='i' />
+        <h1>Communication Numérique et Multimédia</h1>
+        <p>Maîtrisez les outils et techniques de communication digitale, design graphique et médias interactifs pour produire des contenus engageants et efficaces.</p>
+      </div>
+     </div>
+   <br></br>
+     <div className='card'>
+      <div>
+        <BsRobot  className='i' />
+        <h1>Ingénierie des Systèmes Intelligents</h1>
+        <p>Apprenez à concevoir et à gérer des systèmes automatisés et intelligents, intégrant logiciels, matériels et capteurs pour des applications innovantes et performantes.</p>
+      </div>
+     </div>
+     </details>
     <br></br>
-    <div style={{display:"flex", flexWrap:"wrap"}}>
+    <div style={{display:"flex", flexWrap:"wrap", gap:"20px"}}>
          <div className='headerdesc' style={{flex:"1 10 250px"}}>
+           
             <p>Formations professionnalisantes en développement, réseaux, multimédia & développement informatique .</p>
+            <br></br>
             <button>Inscrivez-vous</button>
          </div>
    <div>
@@ -165,7 +192,7 @@ function App() {
         <input ref={commentRef} placeholder="Comment" required />
          <label>tags</label>
         <input ref={tagRef} placeholder="@Tag"/>
-        <button type="submit">Submit</button>
+        <button type="submit"><GoPaperAirplane style={{marginRight:"5px"}}/>Submit</button>
       </form>
     </div>
     </div>

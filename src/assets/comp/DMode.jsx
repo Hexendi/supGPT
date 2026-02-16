@@ -8,7 +8,7 @@ export default function DarkM() {
  
   const { darkMode, switchMode } = useDarkMode({ 
     persistence: true, 
-    defaultMode: 'dark' 
+    defaultMode: 'ligth' 
   });
 
   useEffect(() => {

@@ -10,7 +10,7 @@
 }
 
 body{
-  background: linear-gradient(100deg ,#0a0e68,#130363);
+  background: linear-gradient(100deg ,#0a0e68,#0f034f);
   font-family:"Bricolage Grotesque", sans-serif;
   color: #ffffff;
   margin: 0;
@@ -52,11 +52,12 @@ header{
 
 }
 .headertitle{
-  background: #0084ff17;
-  border: 1px solid #0040ffd6;
+  background: #0091ff16;
+  border: 1px solid #00a2ff;
   padding:30px 10px;
   border-radius: 5px;
   margin-bottom: 50px;
+  box-shadow: 1px 0px 14px 0.3px #009dff3a;
 }
 .headerdesc{
     left: 40%;
@@ -64,7 +65,7 @@ header{
     padding: 20px;
     color: #010120;
     border-radius: 5px;
-    box-shadow: 1px 1px 0px 0px #bababa;
+    box-shadow: 1px 3px 14px 1px  #bababa52;
     margin-bottom: 20px;
 }
 eroor_img:hover{
@@ -77,6 +78,7 @@ button{
   padding: 10px 50px;
   width: 100%;
   border: 1px solid #0055ff;
+  
 }
 button:hover{
    background: #0e38c1ba;
@@ -119,7 +121,7 @@ button:hover{
   transition: all 0.5s ease;
 }
 .comments{
-
+  
   padding: 20px;
   border: 1px solid #0077ff41;
   border-radius: 10px;
