@@ -12,7 +12,7 @@ function BotAPI() {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/ask", {
+      const res = await axios.post("https://supnum.onrender.com/api/ask", {
         question,
       });
       setAnswer(res.data.answer);
