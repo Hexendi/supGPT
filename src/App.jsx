@@ -52,7 +52,11 @@ function App() {
   const timer = setTimeout(() => {
     setBotcomment(true);
 
-  },2000);
+    setTimeout(() =>{
+      setBotcomment(false);
+   
+  }, 3000);
+  },1000);
     return () => 
       clearTimeout(timer);
  }, []);
@@ -115,20 +119,24 @@ function App() {
       </div>
      </div>
 {botcomment && (
-     <div style={{zIndex:"99",position:"fixed",bottom:"10%",right:"10%",width:"250px",color:"white"}}>
+     <div style={{zIndex:"99",position:"fixed",bottom:"15%",right:"10%",width:"250px",color:"white"}}>
        
         <div style={{backdropFilter:"blur(10px)",background:"#2133ff88",padding:"20px",borderRadius:"10px"}}>
-        <h3>hi i'm SUPGPT</h3>
-        <p>iam here to help about supnum instusu time and advaice , oganasation , resource and abuluty </p>
+        <h3>Hi, I'm SUPGPT.</h3>
+        <p>I’m here to help you with Supnum Institute’s schedule, advice.. ....</p>
+        <br></br>
         <Link to="/bot">
-        <button>Send message</button>
+        <button>Send a message</button>
         </Link>
         </div>
-        <div style={{display:"flex",justifyContent:"end",borderRadius:"50%",padding:"11px",width:"50px",height:"50px",alignItems:"center",background:"#2133ffb1"}}>
+        </div>
+          )}
+        <Link to="/bot">
+        <div style={{color:"white",display:"flex",justifyContent:"end",borderRadius:"50%",padding:"11px",width:"50px",height:"50px",alignItems:"center",background:"#2133ffb1",zIndex:"99",position:"fixed",bottom:"9%",right:"10%"}}>
             <BsRobot style={{fontSize:"30px"}}/>
         </div>
-      </div>
-  )}
+        </Link>
+
 
      <header>
       <div className='headertitle'>
