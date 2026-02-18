@@ -1,7 +1,8 @@
 import express from "express";
 import axios from "axios";
+import path from "path";
 import cors from "cors";
-
+import { fileURLToPath } from "url";
 const prompt = `
 You are an AI assistant representing the "Supnum Institute" . 
 Your role is to interact with students and provide clear, accurate explanations about the institute's system, courses, schedule, specializations, and academic details. 
@@ -51,11 +52,27 @@ Always answer using this context and stay within these boundaries.
 `;
 
 const app = express();
+
+
+
 app.use(express.json());
 app.use(cors());
 
 const LLAMA_TOKEN = "csk-xe44rfk5eptm4k39n3r8mcm3hm3h64mev4852r2cm5nv9y4d";
 const API_URL = "https://api.cerebras.ai/v1/chat/completions";
+
+app.use(express.json());
+app.use(cors());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
 
 app.post("/api/ask", async (req, res) => {
   try {
