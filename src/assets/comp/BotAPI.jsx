@@ -31,7 +31,7 @@ function BotAPI() {
         </div>
         <br></br>
 
-        <div style={{background:"#0091ff16",padding:"20px",borderRadius:"10px",height:"50vh",border: "1px solid #64b9ff89"}}>
+        <div style={{background:"#0091ff16",padding:"20px",borderRadius:"10px",height:"100%",border: "1px solid #64b9ff89"}}>
         
             {loading ? <p>Loading...</p> : <><p style={{background:"#0091ff16",marginBottom:"10px" ,padding:"20px",borderRadius:"10px",border: "1px solid #64b9ff89"}}>you: {question}</p> <p>Answer: {answer}</p></>}
         </div>
