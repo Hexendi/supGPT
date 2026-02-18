@@ -3,19 +3,18 @@
 import { IoGitNetworkOutline } from 'react-icons/io5';
 import { PiCodeDuotone } from "react-icons/pi";
 import { GrMultimedia } from "react-icons/gr";
+import { RiChatSmileAiLine } from "react-icons/ri";
 import { GoStack } from "react-icons/go";
 import { BsRobot } from "react-icons/bs";
 import { GoPaperAirplane } from "react-icons/go";
 import { PiSealCheckFill } from "react-icons/pi";
 import { BiStats } from "react-icons/bi";
-
+import { Link } from "react-router-dom";
+import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import { db } from "./firebase";
 import { collection, addDoc, onSnapshot, query, orderBy } from "firebase/firestore";
-
 import DarkM from "./assets/comp/DMode";
-
-
 import './App.css'
 
 
@@ -34,7 +33,7 @@ function AddComment({ comments }) {
               alt="user"
             />
             <div>
-              <h3>{item.name.endsWith("CTW") ?<> {item.name.slice(0,-3)} <PiSealCheckFill style={{color:"#007b9e",padding:"1px"}} /></> : item.name}</h3>
+              <h3>{item.name.endsWith("CTW") ?<> {item.name.slice(0,-3)} <PiSealCheckFill style={{color:"#9e9b00",padding:"1px"}} /></> : item.name}</h3>
               <p>{item.name.endsWith("CTW") ? <> {item.name.slice(0,-3)}@supnum.mr </> : item.name+'@supnum.mr'}</p>
             </div>
           </div>
@@ -48,6 +47,20 @@ function AddComment({ comments }) {
 
 
 function App() {
+ const [botcomment,setBotcomment] = useState(false)
+ useEffect(()=>{
+  const timer = setTimeout(() => {
+    setBotcomment(true);
+
+  },2000);
+    return () => 
+      clearTimeout(timer);
+ }, []);
+
+
+
+
+
   const [comments, setComments] = useState([]);
   const nameRef = useRef();
   const commentRef = useRef();
@@ -96,11 +109,26 @@ function App() {
         <li>Formations </li>
         <li>A propos</li>
         <li>srtaf</li>
-        <li>Actulaite</li>
+        <li href="bot.jsx">Actulaite</li>
       </ul>
       <DarkM />
       </div>
      </div>
+{botcomment && (
+     <div style={{zIndex:"99",position:"fixed",bottom:"10%",right:"10%",width:"250px",color:"white"}}>
+       
+        <div style={{backdropFilter:"blur(10px)",background:"#2133ff88",padding:"20px",borderRadius:"10px"}}>
+        <h3>hi i'm SUPGPT</h3>
+        <p>iam here to help about supnum instusu time and advaice , oganasation , resource and abuluty </p>
+        <Link to="/bot">
+        <button>Send message</button>
+        </Link>
+        </div>
+        <div style={{display:"flex",justifyContent:"end",borderRadius:"50%",padding:"11px",width:"50px",height:"50px",alignItems:"center",background:"#2133ffb1"}}>
+            <BsRobot style={{fontSize:"30px"}}/>
+        </div>
+      </div>
+  )}
 
      <header>
       <div className='headertitle'>
