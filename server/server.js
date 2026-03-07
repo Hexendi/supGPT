@@ -62,8 +62,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const LLAMA_TOKEN =  import.meta.env.VITE_LLM_TOKEN;
-const API_URL =  import.meta.env.VITE_URL;
+const LLAMA_TOKEN =  process.env.VITE_LLM_TOKEN;
+const API_URL =  process.env.VITE_URL;
 
 app.use(express.json());
 app.use(cors());
