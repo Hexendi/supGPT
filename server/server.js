@@ -48,7 +48,11 @@ Here are the rules, courses, credits, and specializations to follow:
    - License: RSS(Réseaux, Systèmes et Sécurité), IDS(Ingénierie des Données et Statistiques), DSI(Développement des Systèmes Informatiques), DWM(Communication Numérique et Multimédia), IOT(Ingénierie des Systèmes Intelligents)
    - Master: AI, CYS
 
-Always answer using this context and stay within these boundaries.
+7. 
+   - 
+
+Always answer using this context and stay within these boundaries and briefly if the user does not request a long answer .
+Add a blank line between each paragraph.
 `;
 
 const app = express();
@@ -58,8 +62,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const LLAMA_TOKEN = "csk-xe44rfk5eptm4k39n3r8mcm3hm3h64mev4852r2cm5nv9y4d";
-const API_URL = "https://api.cerebras.ai/v1/chat/completions";
+const LLAMA_TOKEN = process.env.VITE_LLM_TOKEN;
+const API_URL = process.env.VITE_URL;
 
 app.use(express.json());
 app.use(cors());
@@ -76,7 +80,7 @@ app.use(express.static(path.join(__dirname, "../dist")));
 
 app.post("/api/ask", async (req, res) => {
   try {
-    
+    console.log('test')
     const { question: studentQuestion } = req.body;
 
  
@@ -100,7 +104,8 @@ app.post("/api/ask", async (req, res) => {
         }
       }
     );
-
+    console.log('test')
+    console.log(answer)
     const answer = response.data.choices[0].message.content;
     res.json({ answer });
 
