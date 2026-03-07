@@ -12,7 +12,7 @@ import { BiStats } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
-import { db } from "./firebase";
+import { db } from "../server/firebase";
 import { collection, addDoc, onSnapshot, query, orderBy } from "firebase/firestore";
 import DarkM from "./assets/comp/DMode";
 import './App.css'
@@ -146,7 +146,7 @@ function App() {
         </div>
         <br></br>
         <h2><GoStack style={{color:"#006aff",marginRight:"5px"}} />Nos spécialités</h2>
-        <p>Créé en septembre  2021 par décret présidentiel, SupNum a pour mission de former les cadres moyens supérieurs dans les métiers du numérique : développement, réseaux, systèmes, sécurité et communication numérique.</p>
+        <p>Créé en septembre 2021 par décret présidentiel, SupNum a pour mission de former les cadres moyens supérieurs dans les métiers du numérique: développement, réseaux, systèmes, sécurité et communication numérique.</p>
          <br></br>
       </div>
      </header>
@@ -162,7 +162,7 @@ function App() {
         <div className='bg'></div>
           <div className='child'>
           <h2>supnum instaiti</h2>
-          <p>instute réé en septembre  2021 par décret présidentiel, SupNum a pour mission de former les cadres moyens supérieurs dans les métiers du numérique : développement, réseaux, systèmes, sécurité et communication numérique. supernumer numer hou sjosfj uto fsjojfsfs</p>
+          <p>instute réé en septembre 2021 par décret présidentiel, SupNum a pour mission de former les cadres moyens supérieurs dans les métiers du numérique: développement, réseaux, systèmes, sécurité et communication numérique. supernumer numer hou sjosfj uto fsjojfsfs</p>
           </div>
       </div>
      <br></br>
@@ -212,7 +212,7 @@ function App() {
     <div style={{display:"flex", flexWrap:"wrap", gap:"20px"}}>
          <div className='headerdesc' style={{flex:"1 10 250px"}}>
            
-            <p>Formations professionnalisantes en développement, réseaux, multimédia & développement informatique .</p>
+            <p>Formations professionnalisantes en développement, réseaux, multimédia & développement informatique.</p>
             <br></br>
             <button>Inscrivez-vous</button>
          </div>

@@ -93,6 +93,7 @@ button:hover{
 .card{
   flex: 1 10 250px ;
   background: #0091ff16;
+
   border-radius: 10px;
   padding: 20px;
   border: 1px solid #64b9ff89;
@@ -108,7 +109,7 @@ button:hover{
   color: #009dff;
 }
 .infoimg{
-  position: relative;
+  position: relative
 }
 .infoimg img:hover{
  filter: grayscale(0%)
