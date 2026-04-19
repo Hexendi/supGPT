@@ -421,6 +421,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.set("trust proxy", 1);
 
 const LLAMA_TOKEN = process.env.VITE_LLM_TOKEN;
 const API_URL = process.env.VITE_URL;
@@ -438,9 +439,8 @@ const limiter = rateLimit({
     error: "Too many requests, please try again later.(2lla bechor)"
   }
 });
-app.use(limiter);
 
-app.post("/api/ask", async (req, res) => {
+app.post("/api/ask",limiter, async (req, res) => {
   try {
     const { question: studentQuestion } = req.body;
 
