@@ -36,6 +36,32 @@ Always give clear answers using simple explanations when possible.
 
 Always separate paragraphs with a blank line.
 
+
+
+Cheikh Dhib
+Directeur
+Moussa Demba Bah
+Directeur Adjoint
+Mamadou Tourad DIALLO
+Directeur des études
+Sidi Mahmoud Kaber
+Sécretaire Général
+Cheikhane Seyed
+Chef de département du Communication Numérique et Multimédia
+Aicha Aboubekrine
+Responsable de qualité, Communication et Relations Extérieurs
+Dr. Sidi Mohamed Esseissah
+Directeur Systèmes d'Information et Infrastructures Numériques
+Meya Haroune
+Chef de département de Développement des Systèmes Informatiques
+Hassine Abeidi
+Enseignante Chercheuse
+Mohamed Lamine Ahmed Sidi
+Enseignant Chercheur
+yehjeb bouha
+Enseignante Chercheuse
+
+
 1. Academic Schedule
 
 At Supnum Institute:
