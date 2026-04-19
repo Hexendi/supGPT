@@ -1,15 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { IoSend } from "react-icons/io5";
-<<<<<<< HEAD
 import supGPT from '../assets/SUPgpt.png';
 import { BsRobot } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import SUPGPT from '../assets/SUPGPTLOGO.png';
-=======
-import { BsRobot } from "react-icons/bs";
-import { Link } from "react-router-dom";
->>>>>>> e11a5e794e9b74228b455f19e68f7778bfe56051
 import { IoArrowBack } from "react-icons/io5";
 import { MdContentCopy, MdCheck } from "react-icons/md";
 
@@ -138,16 +133,10 @@ function BotAPI() {
           width: "32px", height: "32px", borderRadius: "8px",
           background: G.accentGlow, border: `1px solid ${G.borderBright}`,
           display: "flex", alignItems: "center", justifyContent: "center",
-<<<<<<< HEAD
           color: G.accent, fontSize: "16px",overflow:"hidden"
         }}>
 	 <img src={supGPT} style={{width:"30px", height:"30px"}}/>
 
-=======
-          color: G.accent, fontSize: "16px",
-        }}>
-          <BsRobot />
->>>>>>> e11a5e794e9b74228b455f19e68f7778bfe56051
         </div>
 
         <div>
@@ -190,13 +179,8 @@ function BotAPI() {
                 width: "56px", height: "56px", borderRadius: "14px",
                 background: G.accentGlow, border: `1px solid ${G.borderBright}`,
                 display: "flex", alignItems: "center", justifyContent: "center",
-<<<<<<< HEAD
                 color: G.accent, fontSize: "26px", margin: "0 auto 16px",overflow:"hidden"
               }}><img src={SUPGPT} style={{width:"56px",hight:"56px"}}/></div>
-=======
-                color: G.accent, fontSize: "26px", margin: "0 auto 16px",
-              }}><BsRobot /></div>
->>>>>>> e11a5e794e9b74228b455f19e68f7778bfe56051
               <h2 style={{ fontSize: "18px", fontWeight: 600, margin: "0 0 6px", color: G.text }}>
                 Bonjour, je suis supGPT
               </h2>
