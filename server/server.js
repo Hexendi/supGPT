@@ -2,7 +2,9 @@ import express from "express";
 import axios from "axios";
 import path from "path";
 import cors from "cors";
+import "dotenv/config";
 import { fileURLToPath } from "url";
+
 const prompt = `
 You are an AI assistant representing the "Supnum Institute" . 
 Your role is to interact with students and provide clear, accurate explanations about the institute's system, courses, schedule, specializations, and academic details. 
@@ -48,65 +50,49 @@ Here are the rules, courses, credits, and specializations to follow:
    - License: RSS(Réseaux, Systèmes et Sécurité), IDS(Ingénierie des Données et Statistiques), DSI(Développement des Systèmes Informatiques), DWM(Communication Numérique et Multimédia), IOT(Ingénierie des Systèmes Intelligents)
    - Master: AI, CYS
 
-7. 
-   - 
-
-Always answer using this context and stay within these boundaries and briefly if the user does not request a long answer .
+Always answer using this context and stay within these boundaries and briefly if the user does not request a long answer.
 Add a blank line between each paragraph.
 `;
 
 const app = express();
 
-
-
 app.use(express.json());
 app.use(cors());
 
-const LLAMA_TOKEN =  process.env.VITE_LLM_TOKEN;
-const API_URL =  process.env.VITE_URL;
-
-app.use(express.json());
-app.use(cors());
+const LLAMA_TOKEN = process.env.VITE_LLM_TOKEN;
+const API_URL = process.env.VITE_URL;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "../dist")));
 
-
-
-
-
-
 app.post("/api/ask", async (req, res) => {
   try {
-    console.log('test')
     const { question: studentQuestion } = req.body;
 
- 
     const fullQuestion = `${prompt}\nStudent question: ${studentQuestion}`;
 
     const response = await axios.post(
       API_URL,
       {
-        model: "llama3.1-8b", 
+        model: "llama3.1-8b",
         messages: [
           { role: "system", content: "You are a helpful assistant." },
-          { role: "user", content: fullQuestion }
+          { role: "user", content: fullQuestion },
         ],
         max_tokens: 500,
-        temperature: 0.7
+        temperature: 0.7,
       },
       {
         headers: {
           Authorization: `Bearer ${LLAMA_TOKEN}`,
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }
     );
-    console.log('test')
-    console.log(answer)
     const answer = response.data.choices[0].message.content;
+    console.log("Answer:", answer);
     res.json({ answer });
 
   } catch (err) {
@@ -116,7 +102,9 @@ app.post("/api/ask", async (req, res) => {
     });
   }
 });
+
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
+
 app.listen(5000, () => console.log("Server running on port 5000"));

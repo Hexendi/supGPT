@@ -14,7 +14,7 @@ import React from 'react';
 import { useState, useRef, useEffect } from "react";
 import { db } from "../server/firebase";
 import { collection, addDoc, onSnapshot, query, orderBy } from "firebase/firestore";
-import DarkM from "./assets/comp/DMode";
+import DarkM from "./comp/DMode";
 import './App.css'
 
 
