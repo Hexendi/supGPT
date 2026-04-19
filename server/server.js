@@ -66,7 +66,8 @@ L2 → S3 and S4
 L3 → S5 and S6
 
 Students progress semester by semester.
-
+all student have an email for example : 25043@supnum.mr its mean 25=>2025 and 043 the ID 
+......23043..25001..; the student class id : 25043 email:25043@supnum.mr
 Understanding semesters is very important for exam planning.
 
 3. Courses and Credits
