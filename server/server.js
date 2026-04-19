@@ -419,9 +419,10 @@ Keep tone educational and professional
 
 const app = express();
 
+app.set("trust proxy", 1);
 app.use(express.json());
 app.use(cors());
-app.set("trust proxy", 1);
+app.use(limiter);
 
 const LLAMA_TOKEN = process.env.VITE_LLM_TOKEN;
 const API_URL = process.env.VITE_URL;
@@ -434,15 +435,24 @@ app.use(express.static(path.join(__dirname, "../dist")));
 // rate limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 20,
   message: {
     error: "Too many requests, please try again later.(2lla bechor)"
   }
 });
 
-app.post("/api/ask",limiter, async (req, res) => {
+app.post("/api/ask", async (req, res) => {
   try {
     const { question: studentQuestion } = req.body;
+  
+
+	  if (!studentQuestion || typeof studentQuestion !== "string" || studentQuestion.trim().length === 0) {
+   		 return res.status(400).json({ answer: "Please provide a valid question." });
+	  }
+
+	  if (studentQuestion.length > 1000) {
+ 	   return res.status(400).json({ answer: "Question too long." });
+	  }
 
     const fullQuestion = `${prompt}\nStudent question: ${studentQuestion}`;
 
@@ -462,6 +472,7 @@ app.post("/api/ask",limiter, async (req, res) => {
           Authorization: `Bearer ${LLAMA_TOKEN}`,
           "Content-Type": "application/json",
         },
+	timeout: 10000,
       }
     );
     const answer = response.data.choices[0].message.content;
